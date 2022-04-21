@@ -6,8 +6,6 @@ import org.springframework.data.annotation.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
 
 public class Company {
 
@@ -24,9 +22,9 @@ public class Company {
     private String companyWebsite;
     @NotBlank(message = "mandatory")
     private String listedStockExchange;
-    private Optional<Stock> relatedStock;
+    private Stock relatedStock;
 
-    public Company(ObjectId companyCode, String companyName, String companyCEO, Double companyTurnover, String companyWebsite, String listedStockExchange, Optional<Stock> relatedStock) {
+    public Company(ObjectId companyCode, String companyName, String companyCEO, Double companyTurnover, String companyWebsite, String listedStockExchange, Stock relatedStock) {
         this.companyCode = companyCode;
         this.companyName = companyName;
         this.companyCEO = companyCEO;
@@ -60,7 +58,7 @@ public class Company {
         return listedStockExchange;
     }
 
-    public Optional<Stock> getRelatedStock() {
+    public Stock getRelatedStock() {
         return relatedStock;
     }
 
@@ -88,7 +86,7 @@ public class Company {
         this.listedStockExchange = listedStockExchange;
     }
 
-    public void setRelatedStock(Optional<Stock> relatedStock) {
+    public void setRelatedStock(Stock relatedStock) {
         this.relatedStock = relatedStock;
     }
 
