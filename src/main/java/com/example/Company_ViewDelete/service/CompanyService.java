@@ -1,7 +1,7 @@
-package com.example.HackFSE.service;
+package com.example.Company_ViewDelete.service;
 
-import main.java.com.example.HackFSE.model.Company;
-import com.example.HackFSE.repository.CompanyRepository;
+import com.example.Company_ViewDelete.model.Company;
+import com.example.Company_ViewDelete.repository.CompanyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

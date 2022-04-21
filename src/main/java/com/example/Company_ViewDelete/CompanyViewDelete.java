@@ -1,13 +1,13 @@
-package main.java.com.example.HackFSE;
+package com.example.Company_ViewDelete;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HackFseApplication {
+public class CompanyViewDelete {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HackFseApplication.class, args);
+		SpringApplication.run(CompanyViewDelete.class, args);
 	}
 
 }

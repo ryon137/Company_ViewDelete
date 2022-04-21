@@ -1,7 +1,8 @@
-package com.example.HackFSE.repository;
+package com.example.Company_ViewDelete.repository;
 
-import main.java.com.example.HackFSE.model.Company;
-import com.example.HackFSE.model.Stock;
+
+import com.example.Company_ViewDelete.model.Company;
+import com.example.Company_ViewDelete.model.Stock;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

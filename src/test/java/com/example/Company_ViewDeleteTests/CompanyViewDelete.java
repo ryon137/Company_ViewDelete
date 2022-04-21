@@ -1,10 +1,10 @@
-package com.example.HackFSE;
+package com.example.Company_ViewDeleteTests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class HackFseApplicationTests {
+@SpringBootTest(classes = CompanyViewDelete.class)
+class CompanyViewDelete {
 
 	@Test
 	void contextLoads() {

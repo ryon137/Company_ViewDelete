@@ -1,4 +1,4 @@
-package com.example.HackFSE.model;
+package com.example.Company_ViewDelete.model;
 
 import org.springframework.data.annotation.Id;
 
