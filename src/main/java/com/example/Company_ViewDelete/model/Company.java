@@ -1,5 +1,6 @@
 package com.example.Company_ViewDelete.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.Min;
@@ -11,7 +12,7 @@ import java.util.UUID;
 public class Company {
 
     @Id
-    private UUID companyCode;
+    private ObjectId companyCode;
     @NotBlank(message = "mandatory")
     private String companyName;
     @NotBlank(message = "mandatory")
@@ -25,7 +26,7 @@ public class Company {
     private String listedStockExchange;
     private Optional<Stock> relatedStock;
 
-    public Company(UUID companyCode, String companyName, String companyCEO, Double companyTurnover, String companyWebsite, String listedStockExchange, Optional<Stock> relatedStock) {
+    public Company(ObjectId companyCode, String companyName, String companyCEO, Double companyTurnover, String companyWebsite, String listedStockExchange, Optional<Stock> relatedStock) {
         this.companyCode = companyCode;
         this.companyName = companyName;
         this.companyCEO = companyCEO;
@@ -35,7 +36,7 @@ public class Company {
         this.relatedStock = relatedStock;
     }
 
-    public UUID getCompanyCode() {
+    public ObjectId getCompanyCode() {
         return companyCode;
     }
 
@@ -63,7 +64,7 @@ public class Company {
         return relatedStock;
     }
 
-    public void setCompanyCode(UUID companyCode) {
+    public void setCompanyCode(ObjectId companyCode) {
         this.companyCode = companyCode;
     }
 

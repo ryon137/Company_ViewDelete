@@ -2,6 +2,7 @@ package com.example.Company_ViewDelete.controller;
 
 import com.example.Company_ViewDelete.model.Company;
 import com.example.Company_ViewDelete.service.CompanyService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class CompanyController {
 
 
     @GetMapping("/info/{companyCode}")
-    public ResponseEntity<Company> getCompany(@PathVariable UUID companyCode){
+    public ResponseEntity<Company> getCompany(@PathVariable ObjectId companyCode){
         return new ResponseEntity(companyService.getCompany(companyCode), HttpStatus.OK);
     }
 
@@ -33,7 +34,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/delete/{companyCode}")
-    public ResponseEntity<Company> deleteCompany(@PathVariable UUID companyCode){
+    public ResponseEntity<Company> deleteCompany(@PathVariable ObjectId companyCode){
         return new ResponseEntity(companyService.deleteCompany(companyCode), HttpStatus.OK);
     }
 }
