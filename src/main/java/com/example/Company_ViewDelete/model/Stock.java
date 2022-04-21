@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class Stock {
+    @Id
     private UUID companyCode;
     private double price;
     private LocalDateTime date;
