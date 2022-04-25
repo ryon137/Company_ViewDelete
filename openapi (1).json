@@ -1,0 +1,167 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8090",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/v1.0/market/company/info/{companyCode}": {
+      "get": {
+        "tags": [
+          "company-controller"
+        ],
+        "operationId": "getCompany",
+        "parameters": [
+          {
+            "name": "companyCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ObjectId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Company"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/market/company/getall": {
+      "get": {
+        "tags": [
+          "company-controller"
+        ],
+        "operationId": "getCompanies",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Company"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/market/company/delete/{companyCode}": {
+      "delete": {
+        "tags": [
+          "company-controller"
+        ],
+        "operationId": "deleteCompany",
+        "parameters": [
+          {
+            "name": "companyCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ObjectId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Company"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ObjectId": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Company": {
+        "required": [
+          "companyCEO",
+          "companyName",
+          "companyTurnover",
+          "companyWebsite",
+          "listedStockExchange"
+        ],
+        "type": "object",
+        "properties": {
+          "companyCode": {
+            "$ref": "#/components/schemas/ObjectId"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "companyCEO": {
+            "type": "string"
+          },
+          "companyTurnover": {
+            "minimum": 10000000,
+            "type": "number",
+            "format": "double"
+          },
+          "companyWebsite": {
+            "type": "string"
+          },
+          "listedStockExchange": {
+            "type": "string"
+          },
+          "relatedStock": {
+            "$ref": "#/components/schemas/Stock"
+          }
+        }
+      },
+      "Stock": {
+        "type": "object",
+        "properties": {
+          "companyCode": {
+            "$ref": "#/components/schemas/ObjectId"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
